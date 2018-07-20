@@ -18,6 +18,10 @@
 	<h2>Total Inventory: {{totalProducts}}</h2>
 </div>
 
+<div id="app-1">
+	{{test}}
+</div>
+
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -38,6 +42,14 @@
 			.then(json => {this.products = json.products})
 		}
 	});
+
+	/** #app-1 */
+	var data1 = {test: 1};
+	const app1 = new Vue({
+		el: '#app-1',
+		data: data1,
+	});
+	/** /#app-1 */
 </script>
 </body>
 </html>
