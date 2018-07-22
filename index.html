@@ -5,6 +5,7 @@
 </head>
 <body>
 <div id="app">
+<h2>app</h2>
 	<ul>
 		<li v-for="product in products">
 			<input type="number" min="0" v-model.number="product.quantity < 0 ? product.quantity=0 : product.quantity">
@@ -18,10 +19,12 @@
 	<h2>Total Inventory: {{totalProducts}}</h2>
 </div>
 
+<hr>
+<h2>app-1</h2>
 <div id="app-1">
 	{{test}}
 </div>
-
+<hr>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -50,6 +53,12 @@
 		data: data1,
 	});
 	/** /#app-1 */
+
+	/** Promise Playground */
+	// var promise = new Promise((resolve, reject) => {
+	// 	resolve();
+	// });
+
 </script>
 </body>
 </html>
