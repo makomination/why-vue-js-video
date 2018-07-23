@@ -48,6 +48,12 @@
 	</ol>
 </div>
 <hr>
+<h2>app-5</h2>
+<div id="app-5">
+	<p>{{message}}</p>
+	<button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+<hr>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -103,6 +109,20 @@
 		data: data4,
 	});
 	/** /#app-4 */
+	/** #app-5 */
+	var data5 = { 
+		message: 'Hello, Makoto!!!!!'
+	};
+	const app5 = new Vue({
+		el: '#app-5',
+		data: data5,
+		methods: {
+			reverseMessage: function(){
+				this.message = this.message.split('').reverse().join('');
+			}
+		}
+	});
+	/** /#app-5 */
 
 	/** Promise Playground */
 	// var promise = new Promise((resolve, reject) => {
