@@ -25,6 +25,12 @@
 	{{test}}
 </div>
 <hr>
+<div id="app-2">
+	<span v-bind:title="message">
+		Hover your mouse over me for a few seconds to see my dynamically bound title.
+	</span>
+</div>
+<hr>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -53,6 +59,13 @@
 		data: data1,
 	});
 	/** /#app-1 */
+	/** #app-2 */
+	var data2 = {message: 'You loaded this page on ' + new Date().toLocaleString()};
+	const app2 = new Vue({
+		el: '#app-2',
+		data: data2,
+	});
+	/** /#app-2 */
 
 	/** Promise Playground */
 	// var promise = new Promise((resolve, reject) => {
