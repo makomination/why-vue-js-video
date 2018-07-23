@@ -25,9 +25,17 @@
 	{{test}}
 </div>
 <hr>
+<h2>app-2</h2>
 <div id="app-2">
 	<span v-bind:title="message">
 		Hover your mouse over me for a few seconds to see my dynamically bound title.
+	</span>
+</div>
+<hr>
+<h2>app-3</h2>
+<div id="app-3">
+	<span v-if="seen">
+		Now you can see!
 	</span>
 </div>
 <hr>
@@ -66,6 +74,13 @@
 		data: data2,
 	});
 	/** /#app-2 */
+	/** #app-3 */
+	var data3 = {seen: true};
+	const app3 = new Vue({
+		el: '#app-3',
+		data: data3,
+	});
+	/** /#app-3 */
 
 	/** Promise Playground */
 	// var promise = new Promise((resolve, reject) => {
