@@ -39,6 +39,15 @@
 	</span>
 </div>
 <hr>
+<h2>app-4</h2>
+<div id="app-4">
+	<ol>
+		<li v-for="todo in todos">
+			{{todo.text}}
+		</li>
+	</ol>
+</div>
+<hr>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -81,6 +90,19 @@
 		data: data3,
 	});
 	/** /#app-3 */
+	/** #app-4 */
+	var data4 = {todos: 
+		[
+			{text: 'Hello World'},
+			{text: 'Come on world'},
+			{text: 'Good bye world'}
+		]
+	};
+	const app4 = new Vue({
+		el: '#app-4',
+		data: data4,
+	});
+	/** /#app-4 */
 
 	/** Promise Playground */
 	// var promise = new Promise((resolve, reject) => {
