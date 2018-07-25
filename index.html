@@ -54,6 +54,12 @@
 	<button v-on:click="reverseMessage">Reverse Message</button>
 </div>
 <hr>
+<h2>app-6</h2>
+<div id="app-6">
+	<p>{{message}}</p>
+	<input v-model="message">
+</div>
+<hr>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
 	const app = new Vue({
@@ -123,6 +129,15 @@
 		}
 	});
 	/** /#app-5 */
+	/** #app-6 */
+	var data6 = { 
+		message: 'Hello, Vue!!!!!'
+	};
+	const app6 = new Vue({
+		el: '#app-6',
+		data: data6,
+	});
+	/** /#app-6 */
 
 	/** Promise Playground */
 	// var promise = new Promise((resolve, reject) => {
