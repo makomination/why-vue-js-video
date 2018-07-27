@@ -5,19 +5,45 @@
 </head>
 <body>
 <h2>app</h2>
-<div id="app">   
+<div id="example">
+	<p>Original message: "{{ message }}"</p>
+	<p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+<div id="app">
+	<div v-bind:id="dynamicID"></div>
+	<span v-once>{{a}}, {{c}}</span>
+	<br>
+	<span>{{b}}</span>
+	<p>Using mustaches: {{ html }}</p>
+	<p>Using v-html: <span v-html="html"></span></p>
 </div>
 <hr>
 
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
     /** #app */
-    var data = {};
-	const app = new Vue({
+    var data = {a:1, b:2, c:6, html: '<span style="color:red">This should be red</span>', dynamicID:1};
+	var app = new Vue({
 		el: '#app',
 		data: data,
 	});
-    /** /#app */
+	app.$watch('a', function(nv, ov){console.log(nv, ov, 'changed');console.log(vm.$el)});
+	/** /#app */
+	// #example
+	var vm = new Vue({
+		el: '#example',
+		data: {
+			message: 'Hello'
+		},
+		computed: {
+			// a computed getter
+			reversedMessage: function() {
+				// 'this' points to the vm instance
+				return this.message.split('').reverse().join('')
+			}
+		}
+	});
+	// /#example
 </script>
 </body>
 </html>
