@@ -4,11 +4,22 @@
 	<title>index2</title>
 </head>
 <body>
-<h2>app</h2>
+<h2>BMI Calculator</h2>
+<div id="calc">
+	<div id='result' v-if="bmi">
+		<p>Your BMI is: {{ bmi }}</p>
+		<p><small>(The recommended BMI is 22)</small></p>
+	</div>
+	Your Weight: <input type="number" min="0" v-model.lazy.number="weight"> kg
+	<br>
+	Your Height: <input type="number" min="0" v-model.lazy.number="height"> cm
+</div>
+<hr>
 <div id="example">
 	<p>Original message: "{{ message }}"</p>
 	<p>Computed reversed message: "{{ reversedMessage }}"</p>
 </div>
+<h2>app</h2>
 <div id="app">
 	<div v-bind:id="dynamicID"></div>
 	<span v-once>{{a}}, {{c}}</span>
@@ -21,6 +32,20 @@
 
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
+	/** #calc */
+	var dataForCalc = {weight: 0, height: 0};
+	var vmForCalc = new Vue({
+		el: '#calc',
+		data: dataForCalc,
+		computed: {
+			bmi: function() {
+				if (this.weight > 0 && this.height > 0) {
+					return this.weight*10000/Math.pow(this.height, 2);
+				}
+			}
+		}
+	});
+	/** /#calc */
     /** #app */
     var data = {a:1, b:2, c:6, html: '<span style="color:red">This should be red</span>', dynamicID:1};
 	var app = new Vue({
